@@ -1,0 +1,33 @@
+<template>
+    <template lwc:if={created}>
+        <lightning-card title="Account Created">
+            <div class="slds-var-p-around_medium">
+                <p>Account was created!</p>
+                <br>
+                <lightning-button label="Go Back" variant="brand" onclick={goBack}></lightning-button>
+            </div>
+        </lightning-card>
+    </template>
+    <template lwc:else>
+        <lightning-card title="Create Account">                            
+            <div class="slds-var-p-around_medium">
+                    <lightning-layout-item size="12">
+                        <lightning-input label="Account Name" value={accountName} onchange={handleAccountNameChange} required=""></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <lightning-input label="Industry" value={industry} onchange={handleIndustryChange} placeholder="Healthcare"></lightning-input>  
+                    </lightning-layout-item>                                             
+                <lightning-layout>
+                    <lightning-layout-item size="6">
+                        <lightning-input label="Phone" value={phone} onchange={handlePhoneChange} placeholder="(555) 555-5555" type="phone" pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <lightning-input label="Website" value={website} onchange={handleWebsiteChange} placeholder="https://www.mysite.com" type="url"></lightning-input>                        
+                    </lightning-layout-item>                                    
+                </lightning-layout>                                                
+                <br>
+                <lightning-button label="Create Account" variant="brand" onclick={createAccount}></lightning-button>
+            </div>
+        </lightning-card>
+    </template>
+</template>
